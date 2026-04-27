@@ -6,7 +6,7 @@ paginate: 10
 
 params:
   author: Kesten Broughton
-  description: "Notes on coding, devops, and cloud infrastructure"
+  description: "Secure AI development patterns from a security staff engineer — CVE researcher, FWD:cloudsec speaker, CIS contributor."
   defaultTheme: auto
   ShowReadingTime: true
   ShowShareButtons: false
@@ -19,6 +19,19 @@ params:
     - name: github
       url: "https://github.com/kbroughton"
 
+  homeInfoParams:
+    Title: "Security engineering for the AI era."
+    Content: |
+      I'm Kesten — staff security engineer, 15 years in, mostly breaking things before attackers get the chance.
+      Two-time **[FWD:cloudsec](https://fwdcloudsec.org)** speaker. CVE finder. Dozens of accepted bug bounties.
+      Contributor to **CIS benchmarks** (yes, the ones your compliance team emails you about).
+
+      This blog is about **secure AI development patterns** — what actually changes when you bolt agentic systems
+      onto infrastructure that was already hard to secure, and how to not hand the keys to everyone
+      who finds your refresh token in a GitHub search.
+
+      No hype. Just the parts that bite you at 2 AM.
+
 menu:
   main:
     - name: Posts
@@ -27,6 +40,9 @@ menu:
     - name: Tags
       url: /tags/
       weight: 2
+    - name: About
+      url: /about/
+      weight: 3
 
 outputs:
   home:
