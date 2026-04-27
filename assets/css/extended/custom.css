@@ -104,6 +104,13 @@
     height: auto;
 }
 
+/* ── Home info card (pinned intro) ───────────────────────────────────────── */
+
+.home-info .entry-header,
+.home-info .entry-content {
+    padding-left: 1.25rem;
+}
+
 /* ── Home page first-entry card ─────────────────────────────────────────── */
 
 .first-entry {
