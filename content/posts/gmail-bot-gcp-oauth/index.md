@@ -34,6 +34,28 @@ The threat isn't hypothetical. CI/CD pipelines and test infrastructure are frequ
 targeted because they have permissive network rules, long-lived credentials, and less
 monitoring scrutiny than production systems.
 
+> **How the GitHub search attack works**
+>
+> GitHub's code search is indexed continuously. When a developer commits a file that
+> contains a refresh token — a `.env`, a config JSON, test fixtures with real
+> credentials, a notebook with a hardcoded secret — it becomes searchable within minutes.
+> Automated scanners run queries like `"refresh_token" google gmail` around the clock.
+>
+> Unlike passwords, OAuth refresh tokens don't expire on their own. A token committed
+> and deleted an hour later is still valid: git history is permanent until explicitly
+> purged with a force-push and cache invalidation, and the scanner may have already
+> harvested it. The attacker doesn't need to catch the commit live — they query the index.
+>
+> GitGuardian's [State of Secrets Sprawl](https://www.gitguardian.com/state-of-secrets-sprawl)
+> report found over 12.8 million secrets exposed on public GitHub in a single year, with
+> OAuth tokens among the most common categories. Tools like
+> [TruffleHog](https://github.com/trufflesecurity/trufflehog) and
+> [Gitleaks](https://github.com/gitleaks/gitleaks) automate this scan for defenders
+> (and, by the same logic, for attackers).
+>
+> Storing credentials in Secret Manager instead of in files is the direct countermeasure:
+> the token never touches the filesystem or the repository.
+
 This post shows an architecture that does it right: **separate GCP projects per scope
 and environment**, **OAuth2 credentials in Secret Manager**, and **least-privilege IAM
 at the secret level**. All scripts are in the companion repo at

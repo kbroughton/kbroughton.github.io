@@ -28,7 +28,7 @@ params:
 
       This blog is about **secure AI development patterns** — what actually changes when you bolt agentic systems
       onto infrastructure that was already hard to secure, and how to not hand the keys to everyone
-      who finds your refresh token in a GitHub search.
+      [who finds your refresh token in a GitHub search](/posts/gmail-bot-gcp-oauth/#how-the-github-search-attack-works).
 
 menu:
   main:
