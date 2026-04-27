@@ -6,7 +6,7 @@ layout: page
 url: /about/
 ---
 
-## Security engineering for the AI era
+## Security engineering in a World Full of Bots
 
 I'm a staff security engineer with 15 years of experience finding the gaps between what people think their systems do and what those systems actually do. That gap has never been bigger than it is right now, with AI agents being handed credentials and told to figure it out.
 

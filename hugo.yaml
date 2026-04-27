@@ -20,7 +20,7 @@ params:
       url: "https://github.com/kbroughton"
 
   homeInfoParams:
-    Title: "Security engineering for the AI era."
+    Title: "Security engineering in a World Full of Bots."
     Content: |
       I'm Kesten — staff security engineer, 15 years in, mostly breaking things before attackers get the chance.
       Two-time **[FWD:cloudsec](https://fwdcloudsec.org)** speaker. CVE finder. Dozens of accepted bug bounties.
