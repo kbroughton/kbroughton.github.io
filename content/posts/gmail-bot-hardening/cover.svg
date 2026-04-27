@@ -1,0 +1,106 @@
+<svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#1a1b2e"/>
+      <stop offset="100%" stop-color="#0f1729"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="400" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="3" fill="#50fa7b" opacity="0.6"/>
+
+  <!-- Background glow behind shield stack -->
+  <circle cx="380" cy="195" r="160" fill="#bd93f9" opacity="0.03" filter="url(#soft)"/>
+
+  <!-- Decorative dots -->
+  <g opacity="0.1" fill="#6272a4">
+    <circle cx="60" cy="80" r="2"/><circle cx="120" cy="80" r="2"/><circle cx="60" cy="140" r="2"/><circle cx="120" cy="140" r="2"/>
+    <circle cx="1080" cy="80" r="2"/><circle cx="1140" cy="80" r="2"/><circle cx="1080" cy="140" r="2"/><circle cx="1140" cy="140" r="2"/>
+    <circle cx="1080" cy="300" r="2"/><circle cx="1140" cy="300" r="2"/>
+    <circle cx="60" cy="300" r="2"/><circle cx="120" cy="300" r="2"/>
+  </g>
+
+  <!-- === LAYERED SHIELDS (stacked, largest behind) === -->
+
+  <!-- Layer 4 (outermost): Forwarding rules — blue/cyan -->
+  <g transform="translate(380, 200)" filter="url(#glow)">
+    <path d="M0,-155 L130,-95 L130,55 Q130,140 0,170 Q-130,140 -130,55 L-130,-95 Z"
+          fill="#8be9fd" opacity="0.06"/>
+    <path d="M0,-155 L130,-95 L130,55 Q130,140 0,170 Q-130,140 -130,55 L-130,-95 Z"
+          fill="none" stroke="#8be9fd" stroke-width="2" opacity="0.5"/>
+  </g>
+
+  <!-- Layer 3: Security agent — purple -->
+  <g transform="translate(380, 200)" filter="url(#glow)">
+    <path d="M0,-115 L96,-67 L96,45 Q96,108 0,132 Q-96,108 -96,45 L-96,-67 Z"
+          fill="#bd93f9" opacity="0.08"/>
+    <path d="M0,-115 L96,-67 L96,45 Q96,108 0,132 Q-96,108 -96,45 L-96,-67 Z"
+          fill="none" stroke="#bd93f9" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- Layer 2: Monitoring — yellow -->
+  <g transform="translate(380, 200)" filter="url(#glow)">
+    <path d="M0,-75 L62,-42 L62,28 Q62,72 0,90 Q-62,72 -62,28 L-62,-42 Z"
+          fill="#f1fa8c" opacity="0.08"/>
+    <path d="M0,-75 L62,-42 L62,28 Q62,72 0,90 Q-62,72 -62,28 L-62,-42 Z"
+          fill="none" stroke="#f1fa8c" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- Layer 1 (innermost): Credentials — green -->
+  <g transform="translate(380, 200)" filter="url(#glow)">
+    <path d="M0,-40 L33,-22 L33,14 Q33,40 0,50 Q-33,40 -33,14 L-33,-22 Z"
+          fill="#50fa7b" opacity="0.2"/>
+    <path d="M0,-40 L33,-22 L33,14 Q33,40 0,50 Q-33,40 -33,14 L-33,-22 Z"
+          fill="none" stroke="#50fa7b" stroke-width="2.5"/>
+    <!-- lock icon at center -->
+    <circle cx="0" cy="-2" r="9" fill="none" stroke="#50fa7b" stroke-width="2"/>
+    <rect x="-4" y="4" width="8" height="10" rx="2" fill="#50fa7b" opacity="0.9"/>
+    <path d="M-5,-10 Q-5,-18 0,-18 Q5,-18 5,-10" fill="none" stroke="#50fa7b" stroke-width="2"/>
+  </g>
+
+  <!-- === LEGEND (right side) === -->
+  <g transform="translate(620, 90)">
+
+    <!-- Layer 4 -->
+    <rect x="0" y="0" width="16" height="16" rx="3" fill="#8be9fd" opacity="0.5"/>
+    <rect x="0" y="0" width="16" height="16" rx="3" fill="none" stroke="#8be9fd" stroke-width="1.5"/>
+    <text x="26" y="13" fill="#8be9fd" font-size="15" font-weight="500">Forwarding rules</text>
+    <text x="26" y="32" fill="#6272a4" font-size="12">Narrow what the bot inbox ever sees</text>
+
+    <!-- Layer 3 -->
+    <rect x="0" y="55" width="16" height="16" rx="3" fill="#bd93f9" opacity="0.5"/>
+    <rect x="0" y="55" width="16" height="16" rx="3" fill="none" stroke="#bd93f9" stroke-width="1.5"/>
+    <text x="26" y="68" fill="#bd93f9" font-size="15" font-weight="500">Security-agent classification</text>
+    <text x="26" y="87" fill="#6272a4" font-size="12">SAFE / GREY / BLOCK · morning review queue</text>
+
+    <!-- Layer 2 -->
+    <rect x="0" y="110" width="16" height="16" rx="3" fill="#f1fa8c" opacity="0.5"/>
+    <rect x="0" y="110" width="16" height="16" rx="3" fill="none" stroke="#f1fa8c" stroke-width="1.5"/>
+    <text x="26" y="123" fill="#f1fa8c" font-size="15" font-weight="500">Usage monitoring &amp; alerting</text>
+    <text x="26" y="142" fill="#6272a4" font-size="12">IP / identity / time-window anomaly detection</text>
+
+    <!-- Layer 1 -->
+    <rect x="0" y="165" width="16" height="16" rx="3" fill="#50fa7b" opacity="0.5"/>
+    <rect x="0" y="165" width="16" height="16" rx="3" fill="none" stroke="#50fa7b" stroke-width="1.5"/>
+    <text x="26" y="178" fill="#50fa7b" font-size="15" font-weight="500">Least-privilege credentials</text>
+    <text x="26" y="197" fill="#6272a4" font-size="12">Scoped token · Secret Manager · rotation</text>
+
+    <!-- Divider -->
+    <line x1="0" y1="222" x2="500" y2="222" stroke="#6272a4" stroke-width="1" opacity="0.3"/>
+    <text x="0" y="244" fill="#6272a4" font-size="12" letter-spacing="1">
+      Register bot accounts in Abnormal Security · Proofpoint · Defender
+    </text>
+  </g>
+
+  <text x="600" y="375" text-anchor="middle" fill="#6272a4" font-size="14" letter-spacing="2">
+    DEFENSE IN DEPTH  •  LAYERED EMAIL SECURITY
+  </text>
+</svg>

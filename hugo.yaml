@@ -1,0 +1,41 @@
+baseURL: "https://kbroughton.github.io/"
+languageCode: en-us
+title: "Kesten Broughton"
+theme: PaperMod
+paginate: 10
+
+params:
+  author: Kesten Broughton
+  description: "Notes on coding, devops, and cloud infrastructure"
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: false
+  socialIcons:
+    - name: github
+      url: "https://github.com/kbroughton"
+
+menu:
+  main:
+    - name: Posts
+      url: /posts/
+      weight: 1
+    - name: Tags
+      url: /tags/
+      weight: 2
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+markup:
+  highlight:
+    style: dracula
+    lineNos: false
+    noClasses: false

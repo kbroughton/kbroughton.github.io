@@ -1,0 +1,193 @@
+/* ── Typography ─────────────────────────────────────────────────────────── */
+
+/* Responsive title scaling — prevents long titles from overrunning */
+.post-title {
+    font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+/* Subtitle sits just below title */
+.post-description {
+    font-size: 1.05rem;
+    color: var(--secondary);
+    margin-top: 6px;
+    line-height: 1.4;
+}
+
+/* Section headings — left accent bar */
+.post-content h2 {
+    border-left: 3px solid #bd93f9;
+    padding-left: 0.65rem;
+    margin-left: -0.65rem;
+}
+
+.post-content h3 {
+    color: var(--secondary);
+}
+
+/* ── Blockquotes as callout boxes ───────────────────────────────────────── */
+
+.post-content blockquote {
+    border-left: 4px solid #8be9fd;
+    background: rgba(139, 233, 253, 0.07);
+    border-radius: 0 6px 6px 0;
+    padding: 0.7rem 1.1rem;
+    margin: 1.4rem 0;
+    font-style: normal;
+}
+
+[data-theme="dark"] .post-content blockquote {
+    background: rgba(139, 233, 253, 0.09);
+}
+
+.post-content blockquote p {
+    margin: 0.25rem 0;
+}
+
+/* ── Tables — scrollable on narrow screens ──────────────────────────────── */
+
+/* Make tables block-level so overflow-x works without a wrapper */
+.post-content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-collapse: collapse;
+    width: max-content;
+    max-width: 100%;
+    margin: 1.2rem 0;
+}
+
+.post-content th {
+    background: rgba(189, 147, 249, 0.15);
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.post-content tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .post-content tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.post-content td,
+.post-content th {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+}
+
+/* ── Code blocks — ensure horizontal scroll, not overflow ───────────────── */
+
+.post-content pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ── Inline code ────────────────────────────────────────────────────────── */
+
+.post-content :not(pre) > code {
+    border-radius: 4px;
+    padding: 0.15em 0.45em;
+    font-size: 0.88em;
+    word-break: break-word;
+}
+
+/* ── Cover image ────────────────────────────────────────────────────────── */
+
+.entry-cover img {
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+    width: 100%;
+    height: auto;
+}
+
+/* ── Home page first-entry card ─────────────────────────────────────────── */
+
+.first-entry {
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--entry);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .first-entry {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Post list entries — hover only on pointer devices ──────────────────── */
+
+.post-entry {
+    border-radius: 10px;
+    /* transition declared always so it doesn't flash on first hover */
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .post-entry:hover {
+        box-shadow: 0 4px 16px rgba(189, 147, 249, 0.15);
+        transform: translateY(-1px);
+    }
+}
+
+/* ── Tag pills — large enough touch target ──────────────────────────────── */
+
+.post-tags a {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 4px 10px;           /* 44px-friendly when combined with line-height */
+    background: rgba(189, 147, 249, 0.12);
+    font-size: 0.78rem;
+    min-height: 28px;
+    line-height: 20px;
+    transition: background 0.15s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .post-tags a:hover {
+        background: rgba(189, 147, 249, 0.28);
+    }
+}
+
+/* ── Mobile-specific overrides ──────────────────────────────────────────── */
+
+@media screen and (max-width: 768px) {
+    /* Reduce heading accent indent on small screens */
+    .post-content h2 {
+        margin-left: 0;
+        padding-left: 0.5rem;
+    }
+
+    /* Tighten blockquote padding */
+    .post-content blockquote {
+        padding: 0.5rem 0.75rem;
+        margin: 1rem 0;
+    }
+
+    /* Ensure table caption text stays readable */
+    .post-content td,
+    .post-content th {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    /* Tighten description */
+    .post-description {
+        font-size: 0.95rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Very small screens: let inline code wrap rather than push layout */
+    .post-content :not(pre) > code {
+        word-break: break-all;
+    }
+
+    /* Cover image: remove shadow on tiny screens to save paint cost */
+    .entry-cover img {
+        box-shadow: none;
+        border-radius: 6px;
+    }
+}

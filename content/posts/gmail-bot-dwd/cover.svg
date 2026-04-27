@@ -1,0 +1,117 @@
+<svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#1a1b2e"/>
+      <stop offset="100%" stop-color="#0f1729"/>
+    </linearGradient>
+    <linearGradient id="red-g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff5555"/>
+      <stop offset="100%" stop-color="#ff6e6e"/>
+    </linearGradient>
+    <linearGradient id="green-g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#50fa7b"/>
+      <stop offset="100%" stop-color="#69ff95"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="400" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="3" fill="#bd93f9" opacity="0.7"/>
+
+  <!-- Decorative dots -->
+  <g opacity="0.1" fill="#6272a4">
+    <circle cx="60" cy="80" r="2"/><circle cx="120" cy="80" r="2"/>
+    <circle cx="60" cy="140" r="2"/><circle cx="120" cy="140" r="2"/>
+    <circle cx="1080" cy="80" r="2"/><circle cx="1140" cy="80" r="2"/>
+    <circle cx="1080" cy="140" r="2"/><circle cx="1140" cy="140" r="2"/>
+    <circle cx="1080" cy="300" r="2"/><circle cx="1140" cy="300" r="2"/>
+    <circle cx="60" cy="300" r="2"/><circle cx="120" cy="300" r="2"/>
+  </g>
+
+  <!-- === SOURCE NODE (left) === -->
+  <g transform="translate(180, 200)">
+    <circle r="44" fill="none" stroke="#bd93f9" stroke-width="2.5"/>
+    <circle r="38" fill="#bd93f9" opacity="0.08"/>
+    <!-- SA icon: person silhouette simplified -->
+    <circle cx="0" cy="-12" r="13" fill="none" stroke="#bd93f9" stroke-width="2"/>
+    <path d="M-20,18 Q-20,0 0,0 Q20,0 20,18" fill="none" stroke="#bd93f9" stroke-width="2"/>
+    <text y="62" text-anchor="middle" fill="#bd93f9" font-size="13" letter-spacing="1">SERVICE ACCOUNT</text>
+  </g>
+
+  <!-- Fork point -->
+  <circle cx="360" cy="200" r="5" fill="#6272a4"/>
+
+  <!-- Stem from source to fork -->
+  <line x1="224" y1="200" x2="360" y2="200" stroke="#6272a4" stroke-width="2"/>
+
+  <!-- === TOP PATH: DWD (danger) === -->
+  <!-- Curved line to top -->
+  <path d="M360,200 C420,200 440,110 510,110" fill="none" stroke="#ff5555" stroke-width="2.5" stroke-dasharray="8,4"/>
+  <polygon points="506,104 518,110 506,116" fill="#ff5555"/>
+
+  <!-- DWD target: multiple mailboxes -->
+  <g transform="translate(640, 110)">
+    <!-- Three stacked envelopes suggesting "all inboxes" -->
+    <g transform="translate(-12, -12)" opacity="0.5">
+      <rect x="-32" y="-24" width="64" height="44" rx="5" fill="none" stroke="#ff5555" stroke-width="1.5"/>
+      <polyline points="-32,-24 0,6 32,-24" fill="none" stroke="#ff5555" stroke-width="1.5"/>
+    </g>
+    <g transform="translate(-6, -6)" opacity="0.75">
+      <rect x="-32" y="-24" width="64" height="44" rx="5" fill="none" stroke="#ff5555" stroke-width="1.5"/>
+      <polyline points="-32,-24 0,6 32,-24" fill="none" stroke="#ff5555" stroke-width="1.5"/>
+    </g>
+    <rect x="-32" y="-24" width="64" height="44" rx="5" fill="#ff5555" opacity="0.1"/>
+    <rect x="-32" y="-24" width="64" height="44" rx="5" fill="none" stroke="#ff5555" stroke-width="2.5"/>
+    <polyline points="-32,-24 0,6 32,-24" fill="none" stroke="#ff5555" stroke-width="2"/>
+    <!-- warning triangle -->
+    <g transform="translate(46, -30)">
+      <polygon points="0,-14 12,8 -12,8" fill="none" stroke="#f1fa8c" stroke-width="2"/>
+      <text x="0" y="5" text-anchor="middle" fill="#f1fa8c" font-size="12" font-weight="bold">!</text>
+    </g>
+    <text y="40" text-anchor="middle" fill="#ff5555" font-size="13" letter-spacing="0.5">DOMAIN-WIDE DELEGATION</text>
+    <text y="58" text-anchor="middle" fill="#ff5555" font-size="11" opacity="0.7">all mailboxes • high blast radius</text>
+  </g>
+
+  <!-- === BOTTOM PATH: Per-user OAuth (safe) === -->
+  <path d="M360,200 C420,200 440,290 510,290" fill="none" stroke="#50fa7b" stroke-width="2.5"/>
+  <polygon points="506,284 518,290 506,296" fill="#50fa7b"/>
+
+  <!-- Per-user target: single mailbox -->
+  <g transform="translate(640, 290)">
+    <rect x="-32" y="-24" width="64" height="44" rx="5" fill="#50fa7b" opacity="0.1"/>
+    <rect x="-32" y="-24" width="64" height="44" rx="5" fill="none" stroke="#50fa7b" stroke-width="2.5"/>
+    <polyline points="-32,-24 0,6 32,-24" fill="none" stroke="#50fa7b" stroke-width="2"/>
+    <!-- checkmark -->
+    <g transform="translate(46, -30)">
+      <circle r="12" fill="none" stroke="#50fa7b" stroke-width="2"/>
+      <polyline points="-5,0 -1,5 7,-5" fill="none" stroke="#50fa7b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text y="40" text-anchor="middle" fill="#50fa7b" font-size="13" letter-spacing="0.5">PER-USER OAUTH</text>
+    <text y="58" text-anchor="middle" fill="#50fa7b" font-size="11" opacity="0.7">one bot account • contained blast radius</text>
+  </g>
+
+  <!-- Right side: blast radius comparison bars -->
+  <g transform="translate(920, 110)">
+    <text x="0" y="-10" fill="#6272a4" font-size="12" letter-spacing="1">BLAST RADIUS IF COMPROMISED</text>
+    <!-- DWD bar: full width, red -->
+    <rect x="0" y="10" width="200" height="22" rx="4" fill="#ff5555" opacity="0.8"/>
+    <text x="205" y="26" fill="#ff5555" font-size="12">entire org</text>
+    <!-- Per-user bar: tiny, green -->
+    <rect x="0" y="50" width="18" height="22" rx="4" fill="#50fa7b" opacity="0.8"/>
+    <text x="24" y="66" fill="#50fa7b" font-size="12">one account</text>
+  </g>
+
+  <!-- Blast radius comparison for hardening -->
+  <g transform="translate(920, 260)">
+    <text x="100" y="0" text-anchor="middle" fill="#6272a4" font-size="12" letter-spacing="1">RECOMMENDED FOR MOST USE CASES</text>
+    <rect x="20" y="12" width="160" height="30" rx="6" fill="none" stroke="#50fa7b" stroke-width="2"/>
+    <text x="100" y="32" text-anchor="middle" fill="#50fa7b" font-size="14" font-weight="600">Per-User OAuth ↓</text>
+  </g>
+
+  <text x="600" y="375" text-anchor="middle" fill="#6272a4" font-size="14" letter-spacing="2">
+    CHOOSE YOUR ACCESS MODEL  •  SECURITY TRADE-OFFS
+  </text>
+</svg>
