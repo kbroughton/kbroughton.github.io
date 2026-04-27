@@ -374,3 +374,4 @@ the app**.
 
 - [Domain-Wide Delegation vs Per-User OAuth](/posts/gmail-bot-dwd/)
 - [Advanced Hardening: Forwarding Rules and Email Security Tools](/posts/gmail-bot-hardening/)
+- [The App Password Attack Surface](/posts/gmail-smtp-app-passwords/) — why SMTP + app passwords is not the alternative
