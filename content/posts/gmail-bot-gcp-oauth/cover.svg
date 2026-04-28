@@ -1,102 +1,195 @@
-<svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+<svg viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
       <stop offset="0%" stop-color="#1a1b2e"/>
       <stop offset="100%" stop-color="#0f1729"/>
     </linearGradient>
-    <linearGradient id="purple-glow" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#bd93f9" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#9370db" stop-opacity="0.7"/>
-    </linearGradient>
-    <linearGradient id="cyan-glow" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#8be9fd" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#5ec8e5" stop-opacity="0.7"/>
-    </linearGradient>
-    <linearGradient id="green-glow" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#50fa7b" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#2ecc71" stop-opacity="0.7"/>
-    </linearGradient>
-    <filter id="glow">
+    <filter id="glow-red">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-green">
       <feGaussianBlur stdDeviation="3" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="400" fill="url(#bg)"/>
+  <rect width="1200" height="420" fill="url(#bg)"/>
 
-  <!-- Decorative grid dots -->
-  <g opacity="0.12" fill="#bd93f9">
-    <circle cx="60" cy="60" r="2"/><circle cx="120" cy="60" r="2"/><circle cx="180" cy="60" r="2"/><circle cx="240" cy="60" r="2"/>
-    <circle cx="60" cy="120" r="2"/><circle cx="120" cy="120" r="2"/><circle cx="180" cy="120" r="2"/><circle cx="240" cy="120" r="2"/>
-    <circle cx="60" cy="180" r="2"/><circle cx="120" cy="180" r="2"/><circle cx="180" cy="180" r="2"/>
-    <circle cx="960" cy="60" r="2"/><circle cx="1020" cy="60" r="2"/><circle cx="1080" cy="60" r="2"/><circle cx="1140" cy="60" r="2"/>
-    <circle cx="960" cy="120" r="2"/><circle cx="1020" cy="120" r="2"/><circle cx="1080" cy="120" r="2"/><circle cx="1140" cy="120" r="2"/>
-    <circle cx="960" cy="180" r="2"/><circle cx="1020" cy="180" r="2"/><circle cx="1080" cy="180" r="2"/>
-    <circle cx="960" cy="280" r="2"/><circle cx="1020" cy="280" r="2"/><circle cx="1080" cy="280" r="2"/>
-    <circle cx="60" cy="280" r="2"/><circle cx="120" cy="280" r="2"/><circle cx="180" cy="280" r="2"/>
+  <!-- Dividing line -->
+  <line x1="600" y1="20" x2="600" y2="400" stroke="#44475a" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="600" y="14" text-anchor="middle" fill="#44475a" font-size="11" letter-spacing="1">VS</text>
+
+  <!-- ═══════════════════════════════════════════════════
+       LEFT SIDE — BAD: App password → full Workspace
+  ════════════════════════════════════════════════════ -->
+
+  <!-- Red top border left -->
+  <rect x="0" y="0" width="598" height="3" fill="#ff5555" opacity="0.85"/>
+
+  <!-- Header -->
+  <text x="299" y="38" text-anchor="middle" fill="#ff5555" font-size="15" font-weight="700" letter-spacing="2">APP PASSWORD</text>
+  <text x="299" y="56" text-anchor="middle" fill="#6272a4" font-size="11" letter-spacing="1">no scope · never expires · bypasses 2FA</text>
+
+  <!-- Key icon -->
+  <g transform="translate(100, 200)">
+    <circle cx="0" cy="0" r="22" fill="#ff5555" opacity="0.1"/>
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#ff5555" stroke-width="2"/>
+    <circle cx="0" cy="0" r="9" fill="none" stroke="#ff5555" stroke-width="2"/>
+    <rect x="16" y="-5" width="48" height="10" rx="3" fill="none" stroke="#ff5555" stroke-width="2"/>
+    <rect x="44" y="5" width="7" height="10" rx="2" fill="none" stroke="#ff5555" stroke-width="2"/>
+    <rect x="55" y="5" width="7" height="14" rx="2" fill="none" stroke="#ff5555" stroke-width="2"/>
+    <text x="32" y="36" text-anchor="middle" fill="#ff5555" font-size="11">16-char token</text>
   </g>
 
-  <!-- === ENVELOPE (left) === -->
-  <g transform="translate(210, 160)">
-    <!-- envelope body -->
-    <rect x="-70" y="-50" width="140" height="100" rx="8" fill="none" stroke="url(#purple-glow)" stroke-width="2.5"/>
-    <!-- envelope flap -->
-    <polyline points="-70,-50 0,20 70,-50" fill="none" stroke="url(#purple-glow)" stroke-width="2.5" stroke-linejoin="round"/>
-    <!-- bottom creases -->
-    <line x1="-70" y1="50" x2="-10" y2="5" stroke="#bd93f9" stroke-width="1.5" opacity="0.5"/>
-    <line x1="70" y1="50" x2="10" y2="5" stroke="#bd93f9" stroke-width="1.5" opacity="0.5"/>
-    <!-- label -->
-    <text y="75" text-anchor="middle" fill="#bd93f9" font-size="14" letter-spacing="1" opacity="0.8">INBOX</text>
+  <!-- Arrow right -->
+  <line x1="160" y1="200" x2="210" y2="200" stroke="#ff5555" stroke-width="2"/>
+  <polygon points="206,194 218,200 206,206" fill="#ff5555"/>
+
+  <!-- Workspace services grid — all lit up in red (full access) -->
+  <!-- Gmail -->
+  <g transform="translate(258, 130)" filter="url(#glow-red)">
+    <rect x="-34" y="-24" width="68" height="48" rx="6" fill="#ff5555" opacity="0.12"/>
+    <rect x="-34" y="-24" width="68" height="48" rx="6" fill="none" stroke="#ff5555" stroke-width="2"/>
+    <polyline points="-28,-24 0,6 28,-24" fill="none" stroke="#ff5555" stroke-width="1.8"/>
+    <text x="0" y="36" text-anchor="middle" fill="#ff5555" font-size="10">Gmail</text>
   </g>
 
-  <!-- Arrow: envelope → lock -->
-  <g filter="url(#glow)">
-    <line x1="310" y1="200" x2="430" y2="200" stroke="#6272a4" stroke-width="2" stroke-dasharray="6,4"/>
-    <polygon points="430,194 442,200 430,206" fill="#6272a4"/>
+  <!-- Drive -->
+  <g transform="translate(358, 130)" filter="url(#glow-red)">
+    <rect x="-34" y="-24" width="68" height="48" rx="6" fill="#ff5555" opacity="0.12"/>
+    <rect x="-34" y="-24" width="68" height="48" rx="6" fill="none" stroke="#ff5555" stroke-width="2"/>
+    <polygon points="0,-18 28,18 -28,18" fill="none" stroke="#ff5555" stroke-width="1.8"/>
+    <text x="0" y="36" text-anchor="middle" fill="#ff5555" font-size="10">Drive</text>
   </g>
 
-  <!-- === LOCK (center) === -->
-  <g transform="translate(540, 170)">
-    <!-- shackle -->
-    <path d="M-28,-40 Q-28,-80 0,-80 Q28,-80 28,-40 L28,-10 L-28,-10 Z"
-          fill="none" stroke="url(#cyan-glow)" stroke-width="3" stroke-linecap="round"/>
-    <!-- body -->
-    <rect x="-40" y="-10" width="80" height="68" rx="8" fill="url(#cyan-glow)" opacity="0.15"/>
-    <rect x="-40" y="-10" width="80" height="68" rx="8" fill="none" stroke="url(#cyan-glow)" stroke-width="2.5"/>
-    <!-- keyhole -->
-    <circle cx="0" cy="22" r="10" fill="none" stroke="#8be9fd" stroke-width="2.5"/>
-    <rect x="-5" y="28" width="10" height="14" rx="2" fill="#8be9fd" opacity="0.8"/>
-    <!-- label -->
-    <text y="82" text-anchor="middle" fill="#8be9fd" font-size="14" letter-spacing="1" opacity="0.8">SECRET MANAGER</text>
+  <!-- Calendar -->
+  <g transform="translate(458, 130)" filter="url(#glow-red)">
+    <rect x="-34" y="-24" width="68" height="48" rx="6" fill="#ff5555" opacity="0.12"/>
+    <rect x="-34" y="-24" width="68" height="48" rx="6" fill="none" stroke="#ff5555" stroke-width="2"/>
+    <rect x="-22" y="-16" width="44" height="36" rx="3" fill="none" stroke="#ff5555" stroke-width="1.8"/>
+    <line x1="-22" y1="-4" x2="22" y2="-4" stroke="#ff5555" stroke-width="1.5"/>
+    <line x1="-8" y1="-20" x2="-8" y2="-10" stroke="#ff5555" stroke-width="2"/>
+    <line x1="8" y1="-20" x2="8" y2="-10" stroke="#ff5555" stroke-width="2"/>
+    <text x="0" y="36" text-anchor="middle" fill="#ff5555" font-size="10">Calendar</text>
   </g>
 
-  <!-- Arrow: lock → vault -->
-  <g filter="url(#glow)">
-    <line x1="622" y1="200" x2="742" y2="200" stroke="#6272a4" stroke-width="2" stroke-dasharray="6,4"/>
-    <polygon points="742,194 754,200 742,206" fill="#6272a4"/>
+  <!-- Docs -->
+  <g transform="translate(258, 255)">
+    <rect x="-34" y="-24" width="68" height="48" rx="6" fill="#ff5555" opacity="0.12"/>
+    <rect x="-34" y="-24" width="68" height="48" rx="6" fill="none" stroke="#ff5555" stroke-width="2"/>
+    <rect x="-18" y="-18" width="36" height="42" rx="3" fill="none" stroke="#ff5555" stroke-width="1.8"/>
+    <line x1="-12" y1="-8" x2="12" y2="-8" stroke="#ff5555" stroke-width="1.5"/>
+    <line x1="-12" y1="2" x2="12" y2="2" stroke="#ff5555" stroke-width="1.5"/>
+    <line x1="-12" y1="12" x2="4" y2="12" stroke="#ff5555" stroke-width="1.5"/>
+    <text x="0" y="36" text-anchor="middle" fill="#ff5555" font-size="10">Docs</text>
   </g>
 
-  <!-- === VAULT / CYLINDER (right) === -->
-  <g transform="translate(870, 160)">
-    <!-- cylinder body -->
-    <rect x="-55" y="-20" width="110" height="85" rx="6" fill="url(#green-glow)" opacity="0.1"/>
-    <rect x="-55" y="-20" width="110" height="85" rx="6" fill="none" stroke="url(#green-glow)" stroke-width="2.5"/>
-    <!-- top ellipse -->
-    <ellipse cx="0" cy="-20" rx="55" ry="14" fill="url(#green-glow)" opacity="0.2"/>
-    <ellipse cx="0" cy="-20" rx="55" ry="14" fill="none" stroke="url(#green-glow)" stroke-width="2.5"/>
-    <!-- shelf lines -->
-    <line x1="-40" y1="10" x2="40" y2="10" stroke="#50fa7b" stroke-width="1.5" opacity="0.4"/>
-    <line x1="-40" y1="30" x2="40" y2="30" stroke="#50fa7b" stroke-width="1.5" opacity="0.4"/>
-    <!-- label -->
-    <text y="90" text-anchor="middle" fill="#50fa7b" font-size="14" letter-spacing="1" opacity="0.8">LEAST PRIVILEGE</text>
+  <!-- Admin / Contacts -->
+  <g transform="translate(358, 255)">
+    <rect x="-34" y="-24" width="68" height="48" rx="6" fill="#ff5555" opacity="0.12"/>
+    <rect x="-34" y="-24" width="68" height="48" rx="6" fill="none" stroke="#ff5555" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="10" fill="none" stroke="#ff5555" stroke-width="1.8"/>
+    <path d="M-18,14 Q-18,2 0,2 Q18,2 18,14" fill="none" stroke="#ff5555" stroke-width="1.8"/>
+    <text x="0" y="36" text-anchor="middle" fill="#ff5555" font-size="10">Contacts</text>
   </g>
 
-  <!-- Bottom tag line -->
-  <text x="600" y="355" text-anchor="middle" fill="#6272a4" font-size="15" letter-spacing="2">
-    GCP  •  OAUTH2  •  PER-SCOPE PROJECT ISOLATION
+  <!-- Password reset warning -->
+  <g transform="translate(458, 255)">
+    <rect x="-34" y="-28" width="68" height="56" rx="6" fill="#ff5555" opacity="0.18"/>
+    <rect x="-34" y="-28" width="68" height="56" rx="6" fill="none" stroke="#ff5555" stroke-width="2"/>
+    <polygon points="0,-18 14,10 -14,10" fill="none" stroke="#f1fa8c" stroke-width="2"/>
+    <text x="0" y="6" text-anchor="middle" fill="#f1fa8c" font-size="14" font-weight="700">!</text>
+    <text x="0" y="36" text-anchor="middle" fill="#f1fa8c" font-size="9">Pwd Reset</text>
+    <text x="0" y="47" text-anchor="middle" fill="#f1fa8c" font-size="9">Attack</text>
+  </g>
+
+  <!-- "FULL ACCESS" label -->
+  <rect x="220" y="320" width="320" height="24" rx="4" fill="#ff5555" opacity="0.15"/>
+  <text x="380" y="337" text-anchor="middle" fill="#ff5555" font-size="12" letter-spacing="2" font-weight="600">FULL WORKSPACE ACCESS</text>
+
+  <!-- ═══════════════════════════════════════════════════
+       RIGHT SIDE — GOOD: gmail.send → scoped, safe
+  ════════════════════════════════════════════════════ -->
+
+  <!-- Green top border right -->
+  <rect x="602" y="0" width="598" height="3" fill="#50fa7b" opacity="0.85"/>
+
+  <!-- Header -->
+  <text x="901" y="38" text-anchor="middle" fill="#50fa7b" font-size="15" font-weight="700" letter-spacing="2">OAUTH2  gmail.send</text>
+  <text x="901" y="56" text-anchor="middle" fill="#6272a4" font-size="11" letter-spacing="1">scoped · Secret Manager · revocable</text>
+
+  <!-- Scoped token icon -->
+  <g transform="translate(700, 200)">
+    <rect x="-26" y="-26" width="52" height="52" rx="8" fill="#50fa7b" opacity="0.1"/>
+    <rect x="-26" y="-26" width="52" height="52" rx="8" fill="none" stroke="#50fa7b" stroke-width="2"/>
+    <!-- lock -->
+    <path d="M-10,-12 Q-10,-22 0,-22 Q10,-22 10,-12 L10,-2 L-10,-2 Z" fill="none" stroke="#50fa7b" stroke-width="2"/>
+    <rect x="-14" y="-2" width="28" height="22" rx="4" fill="#50fa7b" opacity="0.15"/>
+    <rect x="-14" y="-2" width="28" height="22" rx="4" fill="none" stroke="#50fa7b" stroke-width="2"/>
+    <circle cx="0" cy="8" r="4" fill="none" stroke="#50fa7b" stroke-width="1.8"/>
+    <rect x="-2" y="11" width="4" height="5" rx="1" fill="#50fa7b"/>
+    <text x="0" y="42" text-anchor="middle" fill="#50fa7b" font-size="10">Secret Mgr</text>
+  </g>
+
+  <!-- Arrow -->
+  <line x1="730" y1="200" x2="780" y2="200" stroke="#50fa7b" stroke-width="2"/>
+  <polygon points="776,194 788,200 776,206" fill="#50fa7b"/>
+
+  <!-- Gmail SEND — lit up green -->
+  <g transform="translate(858, 130)" filter="url(#glow-green)">
+    <rect x="-40" y="-30" width="80" height="56" rx="6" fill="#50fa7b" opacity="0.12"/>
+    <rect x="-40" y="-30" width="80" height="56" rx="6" fill="none" stroke="#50fa7b" stroke-width="2.5"/>
+    <polyline points="-34,-30 0,8 34,-30" fill="none" stroke="#50fa7b" stroke-width="2"/>
+    <!-- send arrow overlay -->
+    <line x1="16" y1="18" x2="34" y2="18" stroke="#50fa7b" stroke-width="2"/>
+    <polygon points="30,13 40,18 30,23" fill="#50fa7b"/>
+    <text x="0" y="40" text-anchor="middle" fill="#50fa7b" font-size="11" font-weight="600">gmail.send ✓</text>
+  </g>
+
+  <!-- Blocked services — greyed out with X -->
+  <!-- Drive blocked -->
+  <g transform="translate(980, 130)" opacity="0.28">
+    <rect x="-34" y="-24" width="68" height="48" rx="6" fill="none" stroke="#6272a4" stroke-width="1.5"/>
+    <polygon points="0,-18 28,18 -28,18" fill="none" stroke="#6272a4" stroke-width="1.5"/>
+    <line x1="-20" y1="-20" x2="20" y2="20" stroke="#ff5555" stroke-width="2" opacity="1.5"/>
+    <line x1="20" y1="-20" x2="-20" y2="20" stroke="#ff5555" stroke-width="2" opacity="1.5"/>
+    <text x="0" y="36" text-anchor="middle" fill="#6272a4" font-size="10">Drive ✗</text>
+  </g>
+
+  <!-- Inbox / read blocked — key protection -->
+  <g transform="translate(858, 255)">
+    <rect x="-40" y="-30" width="80" height="56" rx="6" fill="#44475a" opacity="0.2"/>
+    <rect x="-40" y="-30" width="80" height="56" rx="6" fill="none" stroke="#44475a" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <!-- envelope with lock overlay -->
+    <polyline points="-28,-24 0,4 28,-24" fill="none" stroke="#6272a4" stroke-width="1.5" opacity="0.5"/>
+    <rect x="-28" y="-24" width="56" height="40" rx="4" fill="none" stroke="#6272a4" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="14" cy="16" r="10" fill="#1a1b2e"/>
+    <circle cx="14" cy="16" r="10" fill="none" stroke="#ff5555" stroke-width="1.8"/>
+    <line x1="8" y1="10" x2="20" y2="22" stroke="#ff5555" stroke-width="2"/>
+    <line x1="20" y1="10" x2="8" y2="22" stroke="#ff5555" stroke-width="2"/>
+    <text x="0" y="40" text-anchor="middle" fill="#6272a4" font-size="10">inbox read ✗</text>
+  </g>
+
+  <!-- Password reset blocked -->
+  <g transform="translate(980, 255)">
+    <rect x="-40" y="-32" width="80" height="60" rx="6" fill="#50fa7b" opacity="0.07"/>
+    <rect x="-40" y="-32" width="80" height="60" rx="6" fill="none" stroke="#50fa7b" stroke-width="1.8"/>
+    <!-- shield -->
+    <path d="M0,-22 L18,-12 L18,4 Q18,18 0,24 Q-18,18 -18,4 L-18,-12 Z" fill="#50fa7b" opacity="0.15"/>
+    <path d="M0,-22 L18,-12 L18,4 Q18,18 0,24 Q-18,18 -18,4 L-18,-12 Z" fill="none" stroke="#50fa7b" stroke-width="2"/>
+    <polyline points="-8,2 -2,8 10,-6" fill="none" stroke="#50fa7b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="0" y="40" text-anchor="middle" fill="#50fa7b" font-size="9" font-weight="600">Pwd Reset</text>
+    <text x="0" y="51" text-anchor="middle" fill="#50fa7b" font-size="9">Protected ✓</text>
+  </g>
+
+  <!-- "SCOPED ACCESS" label -->
+  <rect x="660" y="320" width="320" height="24" rx="4" fill="#50fa7b" opacity="0.1"/>
+  <text x="820" y="337" text-anchor="middle" fill="#50fa7b" font-size="12" letter-spacing="2" font-weight="600">SEND ONLY · INBOX UNREACHABLE</text>
+
+  <!-- Bottom tagline -->
+  <text x="600" y="400" text-anchor="middle" fill="#44475a" font-size="13" letter-spacing="2">
+    APP PASSWORD  ·  FULL ACCESS  VS  OAUTH2 SCOPE  ·  LEAST PRIVILEGE
   </text>
-
-  <!-- Subtle top border accent -->
-  <rect x="0" y="0" width="1200" height="3" fill="url(#purple-glow)" opacity="0.7"/>
 </svg>
