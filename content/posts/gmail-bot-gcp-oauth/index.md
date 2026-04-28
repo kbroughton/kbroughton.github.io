@@ -30,35 +30,16 @@ refresh token can:
 - Pivot to other Google services accessible with the same OAuth token if scopes are
   over-broad
 
-The threat isn't hypothetical. CI/CD pipelines and test infrastructure are frequently
-targeted because they have permissive network rules, long-lived credentials, and less
-monitoring scrutiny than production systems.
+This post walks through creating two separate least-privilege apps — an inbox reader
+and a mail sender — each scoped to exactly what it needs. The main risk on the reader
+is password-reset attacks: a compromised read credential lets an attacker request resets
+for third-party services and intercept them. The main risk on the sender is phishing:
+a compromised send credential lets an attacker impersonate your domain. Splitting them
+into separate apps divides the blast radius in half — a leaked reader token can't send,
+and a leaked sender token can't read. The [Advanced Hardening](/posts/gmail-bot-hardening/)
+follow-on describes how to substantially reduce the risk of each.
 
-> **How the GitHub search attack works**
->
-> GitHub's code search is indexed continuously. When a developer commits a file that
-> contains a refresh token — a `.env`, a config JSON, test fixtures with real
-> credentials, a notebook with a hardcoded secret — it becomes searchable within minutes.
-> Automated scanners run queries like `"refresh_token" google gmail` around the clock.
->
-> Unlike passwords, OAuth refresh tokens don't expire on their own. A token committed
-> and deleted an hour later is still valid: git history is permanent until explicitly
-> purged with a force-push and cache invalidation, and the scanner may have already
-> harvested it. The attacker doesn't need to catch the commit live — they query the index.
->
-> GitGuardian's [State of Secrets Sprawl](https://www.gitguardian.com/state-of-secrets-sprawl)
-> report found over 12.8 million secrets exposed on public GitHub in a single year, with
-> OAuth tokens among the most common categories. Tools like
-> [TruffleHog](https://github.com/trufflesecurity/trufflehog) and
-> [Gitleaks](https://github.com/gitleaks/gitleaks) automate this scan for defenders
-> (and, by the same logic, for attackers).
->
-> Storing credentials in Secret Manager instead of in files is the direct countermeasure:
-> the token never touches the filesystem or the repository.
-
-This post shows an architecture that does it right: **separate GCP projects per scope
-and environment**, **OAuth2 credentials in Secret Manager**, and **least-privilege IAM
-at the secret level**. All scripts are in the companion repo at
+All scripts are in the companion repo at
 [scripts/gmail-bot/](https://github.com/kbroughton/kbroughton.github.io/tree/main/scripts/gmail-bot).
 
 Related pages:
