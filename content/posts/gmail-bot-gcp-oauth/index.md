@@ -1,5 +1,5 @@
 ---
-title: "Gmail Bot on GCP"
+title: "Gmail Bot on GCP: Granular Permissions"
 date: 2026-04-27
 draft: false
 tags: ["gcp", "gmail", "oauth2", "security", "python", "bash"]
