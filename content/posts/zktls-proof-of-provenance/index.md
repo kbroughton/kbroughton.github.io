@@ -4,7 +4,7 @@ date: 2026-05-09
 draft: false
 tags: ["zktls", "tls", "zero-knowledge-proofs", "mpc", "reclaim-protocol", "tlsnotary", "compliance", "identity", "web3"]
 description: "How zkTLS lets a user prove that specific data appeared in an HTTPS response — without revealing credentials, session keys, or the full response. Covers proxy, MPC-TLS, and TEE approaches."
-canonical_url: https://blog.pcioasis.com/posts/zkTLS/zktls-proof-of-provenance/
+canonicalURL: https://blog.pcioasis.com/posts/zkTLS/zktls-proof-of-provenance/
 cover:
   image: diagram-page1.png
   relative: true
